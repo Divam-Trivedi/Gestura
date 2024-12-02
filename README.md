@@ -10,13 +10,13 @@ ros2 launch gestura_simulation own_lauch.py
 For teleop, In another terminal run
 
 ```
-ros2 run gestura_simulation key_publisher.py
+ros2 run gestura_simulation key_publisher
 ```
 
 For Getsure based control, run
 
 ```
-ros2 run Gesture_Control_Node robot_control.py
+ros2 run Gesture_Control_Node robot_control
 ```
 
 Follow the instructions to control the robot
