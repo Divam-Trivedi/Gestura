@@ -33,6 +33,7 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
+            'key_publisher = gestura_simulation.key_publisher:main',
         ],
     },
 
