@@ -20,9 +20,9 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'directions_step1 = media_pipe_ros2.Step1_Directions:main',
-            'gripper_step2 = media_pipe_ros2.Step2_Grippers:main',
-            'robot_control = media_pipe_ros2.final_S1_s2:main',
+            'directions_step1 = Gesture_Control_Node.Step1_Directions:main',
+            'gripper_step2 = Gesture_Control_Node.Step2_Grippers:main',
+            'robot_control = Gesture_Control_Node.final_S1_s2:main',
         ],
     },
 )
