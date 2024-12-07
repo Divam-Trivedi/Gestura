@@ -39,21 +39,23 @@ def on_press(key, node):
     # try:
         if key == 'w':  # Check if the "a" key is pressed
             node.publish_message_robot([0.1, 0.0, 0.0, 0.0, 0.0, 0.0])
-        if key == 'a':  # Check if the "a" key is pressed
+        elif key == 'a':  # Check if the "a" key is pressed
             node.publish_message_robot([0.1, 0.0, 0.0, 0.0, 0.0, 0.1])
-        if key == 's':  # Check if the "a" key is pressed
+        elif key == 's':  # Check if the "a" key is pressed
             node.publish_message_robot([0.0, 0.0, 0.0, 0.0, 0.0, 0.0])
-        if key == 'd':  # Check if the "a" key is pressed
+        elif key == 'd':  # Check if the "a" key is pressed
             node.publish_message_robot([0.1, 0.0, 0.0, 0.0, 0.0, -0.1])
-        if key == 'z':  # Check if the "a" key is pressed
+        elif key == 'z':  # Check if the "a" key is pressed
             node.publish_message_robot([-0.1, 0.0, 0.0, 0.0, 0.0, 0.0])
 
-        if key == 'o':  # Check if the "a" key is pressed
+        elif key == 'o':  # Check if the "a" key is pressed
             node.publish_message_gripper([0.05, 0.0, 0.0, 0.0, 0.0, 0.0])
-        if key == 'c':  # Check if the "a" key is pressed
+        elif key == 'c':  # Check if the "a" key is pressed
             node.publish_message_gripper([-0.05, 0.0, 0.0, 0.0, 0.0, 0.0])
-        if key == 'l':  # Check if the "a" key is pressed
+        elif key == 'l':  # Check if the "a" key is pressed
             node.publish_message_gripper([0.0 , 0.0, 0.0, 0.0, 0.0, 0.0])
+        else:
+            print("Invalid Command")
 
         # if key == 's':  # Check if the "a" key is pressed
         #     node.publish_message_robot([0.1, 0.0, 0.0, 0.0, 0.0, 0.0])
