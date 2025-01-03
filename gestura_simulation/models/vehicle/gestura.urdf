@@ -1,0 +1,243 @@
+<?xml version="1.0"?>
+<robot name="simple_robot_with_modified_gripper" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+ <material name="blue">
+    <color rgba="0 0 0.8 1"/>
+  </material>
+ <material name="yellow">
+    <color rgba="0.8 0.8 0 1"/>
+  </material>
+  <material name="white">
+    <color rgba="1 1 1 1"/>
+  </material>
+  <material name="black">
+    <color rgba="0 0 0 1"/>
+  </material>
+  <material name="red">
+    <color rgba="1 0 0 1"/>
+  </material>
+  <material name="green">
+    <color rgba="0 0.5 0 1"/>
+  </material>
+  <material name="orange">
+    <color rgba="1 0.2 0 1"/>
+  </material>
+
+
+  <!-- Chassis (rectangular, red) -->
+  <link name="chassis">
+    <visual>
+      <geometry>
+        <box size="0.6 0.4 0.1"/>
+      </geometry>
+      <material name="red"/>
+    </visual>
+  </link>
+
+  <!-- Wheels (black) -->
+  <link name="wheel_front_left">
+    <visual>
+      <geometry>
+        <cylinder length="0.05" radius="0.05"/> <!-- Wheel dimensions -->
+      </geometry>
+      <material name="black"/>
+    </visual>
+  </link>
+
+  <link name="wheel_front_right">
+    <visual>
+      <geometry>
+        <cylinder length="0.05" radius="0.05"/>
+      </geometry>
+      <material name="black"/>
+    </visual>
+  </link>
+
+  <link name="wheel_back_left">
+    <visual>
+      <geometry>
+        <cylinder length="0.05" radius="0.05"/>
+      </geometry>
+      <material name="black"/>
+    </visual>
+  </link>
+
+  <link name="wheel_back_right">
+    <visual>
+      <geometry>
+        <cylinder length="0.05" radius="0.05"/>
+      </geometry>
+      <material name="black"/>
+    </visual>
+  </link>
+
+  <joint name="wheel_front_left_joint" type="continuous">
+    <parent link="chassis"/>
+    <child link="wheel_front_left"/>
+    <origin xyz="0.25 0.25 0" rpy="1.57 0 0"/> <!-- Position the wheel farther and parallel -->
+    <axis xyz="0 0 1"/>
+  </joint>
+
+  <joint name="wheel_front_right_joint" type="continuous">
+    <parent link="chassis"/>
+    <child link="wheel_front_right"/>
+    <origin xyz="0.25 -0.25 0" rpy="1.57 0 0"/> <!-- Farther from chassis -->
+    <axis xyz="0 0 1"/>
+  </joint>
+
+  <joint name="wheel_back_left_joint" type="continuous">
+    <parent link="chassis"/>
+    <child link="wheel_back_left"/>
+    <origin xyz="-0.25 0.25 0" rpy="1.57 0 0"/>
+    <axis xyz="0 0 1"/>
+  </joint>
+
+  <joint name="wheel_back_right_joint" type="continuous">
+    <parent link="chassis"/>
+    <child link="wheel_back_right"/>
+    <origin xyz="-0.25 -0.25 0" rpy="1.57 0 0"/>
+    <axis xyz="0 0 1"/>
+  </joint>
+
+  <!-- Camera Module -->
+  <link name="camera_module">
+    <visual>
+      <geometry>
+        <box size="0.1 0.1 0.05"/>
+      </geometry>
+      <material name="yellow"/>
+    </visual>
+  </link>
+
+  <joint name="camera_module_joint" type="fixed">
+    <parent link="chassis"/>
+    <child link="camera_module"/>
+    <origin xyz="-0.2 0 0.05" rpy="0 0 0"/> <!-- Moved 0.2 meters forward -->
+  </joint>
+
+  <!-- Arm Base -->
+  <link name="arm_base">
+    <visual>
+      <geometry>
+        <cylinder length="0.2" radius="0.05"/> <!-- Base of the arm -->
+      </geometry>
+      <material name="blue"/>
+    </visual>
+  </link>
+
+  <joint name="arm_base_joint" type="fixed">
+    <parent link="chassis"/>
+    <child link="arm_base"/>
+    <origin xyz="0.2s 0 0.1" rpy="0 0 0"/> <!-- Moved 0.2 meters forward -->
+  </joint>
+  
+  <!-- Arms -->
+
+  <link name="arm_joint1">
+    <visual>
+      <origin xyz="0.15 0 0" rpy="0 0 0" />
+      <geometry>
+        <box size="0.3 0.02 0.02"/> 
+      </geometry>
+      <material name="blue"/>
+    </visual>
+  </link>
+
+  <link name="sphere_joint1">
+    <visual>
+      <geometry>
+        <sphere radius="0.03"/>
+      </geometry>
+      <material name="blue"/>
+    </visual>
+  </link>
+
+  <link name="arm_joint2">
+    <visual>
+    <origin xyz="0.2 0 0" rpy="0 0 0" />
+      <geometry>
+        <box size="0.4 0.02 0.02"/> <!-- Increased length of second link -->
+      </geometry>
+      <material name="green"/>
+    </visual>
+  </link>
+
+  <joint name="arm_joint1" type="revolute">
+    <parent link="arm_base"/>
+    <child link="arm_joint1"/>
+    <origin xyz="0.0 0 0.1" rpy="0 0 0"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-1.57" upper="1.57" effort="10" velocity="1"/>
+  </joint>
+
+  <joint name="sphere_joint1" type="fixed">
+    <parent link="arm_joint1"/>
+    <child link="sphere_joint1"/>
+    <origin xyz="0.3 0 0" rpy="0 0 0"/>
+  </joint>
+
+  <joint name="arm_joint2" type="revolute">
+    <parent link="arm_joint1"/>
+    <child link="arm_joint2"/>
+    <origin xyz="0.3 0 0" rpy="0 0 0"/> <!-- Increased length to match longer link -->
+    <axis xyz="0 1 0"/>
+    <limit lower="-1.57" upper="1.57" effort="10" velocity="1"/>
+  </joint>
+
+  <!-- Gripper Base -->
+  <link name="gripper_base">
+    <visual>
+      <geometry>
+        <box size="0.1 0.02 0.02"/> <!-- Slightly larger base of the gripper -->
+      </geometry>
+      <material name="green"/>
+    </visual>
+  </link>
+
+  <!-- Claspers -->
+  <link name="gripper_clasper_left">
+    <visual>
+      <origin xyz="0.06 0 0" rpy="0 0 0"/>
+      <geometry>
+        <!-- <box size="0.2 0.02 0.02"/>  -->
+        <mesh filename="STL_Files/Left_gripper.stl" scale="0.02 0.02 0.02"/>
+      </geometry>
+      <material name="orange"/>
+    </visual>
+  </link>
+
+  <link name="gripper_clasper_right">
+    <visual>
+      <origin xyz="0.06 0 0" rpy="0 0 0"/>
+      <geometry>
+        <!-- <box size="0.2 0.02 0.02"/> Bigger right prong of the clasper -->
+        <mesh filename="STL_Files/Right_gripper.stl" scale="0.02 0.02 0.02"/>
+      </geometry>
+      <material name="orange"/>
+    </visual>
+  </link>
+
+  <joint name="gripper_base_joint" type="fixed">
+    <parent link="arm_joint2"/>
+    <child link="gripper_base"/>
+    <origin xyz="0.45 0 0" rpy="0 0 0"/> 
+  </joint>
+
+  <joint name="gripper_clasper_left_joint" type="revolute">
+    <parent link="gripper_base"/>
+    <child link="gripper_clasper_left"/>
+    <origin xyz="0.06 0.01 0" rpy="0 0 0.785"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="0" upper="0.785" effort="10" velocity="1"/>
+  </joint>
+
+  <joint name="gripper_clasper_right_joint" type="revolute">
+    <parent link="gripper_base"/>
+    <child link="gripper_clasper_right"/>
+    <origin xyz="0.06 -0.01 0" rpy="0 0 -0.785"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-0.785" upper="0" effort="10" velocity="1"/>
+  </joint>
+
+
+  </robot>
