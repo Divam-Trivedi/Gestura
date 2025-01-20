@@ -4,7 +4,7 @@ A gesture controlled robot simulated in gazebo with ROS2
 For Simulation perform colcon build and then 
 
 ```
-ros2 launch gestura_simulation own_lauch.py
+ros2 launch gestura_simulation own_launch.py
 ```
 
 For teleop, In another terminal run
