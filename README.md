@@ -41,7 +41,7 @@ Follow the instructions to control the robot
 <img src="images/output_gazebo.png" alt="Alt Text" height="500"> 
 
 ## Presentation
-Please find the presenatation slides at - [LinkToPPT]([url](https://docs.google.com/presentation/d/1pCbqbvdjksIjxzxnlgdSUfcdxTCjkJdb/edit?usp=sharing&ouid=115122328361930346605&rtpof=true&sd=true))
+Please find the presenatation slides at - [LinkToPPT](https://docs.google.com/presentation/d/1pCbqbvdjksIjxzxnlgdSUfcdxTCjkJdb/edit?usp=sharing&ouid=115122328361930346605&rtpof=true&sd=true)
 
 ## Acknowledgements
 This project was done by Divam Trivedi as a part of final project presentation for RBE 526 - Human-Robot Interaction by Prof. Jane Li at WPI.
