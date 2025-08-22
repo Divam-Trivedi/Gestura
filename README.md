@@ -22,5 +22,9 @@ ros2 run Gesture_Control_Node robot_control
 Follow the instructions to control the robot
 
 
-### Resuls
+### Results
+
+A simple robot designed for minimal functionality
+<img src="images/robot.png" alt="Alt Text" style="width:50%; height:auto;">
+
 
