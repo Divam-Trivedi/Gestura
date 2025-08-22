@@ -1,6 +1,7 @@
 # Gestura
 A gesture controlled robot simulated in gazebo with ROS2
 
+## Implementation
 For Simulation perform colcon build and then 
 
 ```
@@ -22,7 +23,7 @@ ros2 run Gesture_Control_Node robot_control
 Follow the instructions to control the robot
 
 
-### Results
+## Results
 
 <p> A simple robot designed for minimal functionality </p>
 <img src="images/robot.png" alt="Alt Text" height="200">
@@ -38,3 +39,9 @@ Follow the instructions to control the robot
 
 <p> Output window in gazebo simulation </p>
 <img src="images/output_gazebo.png" alt="Alt Text" height="500"> 
+
+## Presentation
+Please find the presenatation slides at - [LinkToPPT]([url](https://docs.google.com/presentation/d/1pCbqbvdjksIjxzxnlgdSUfcdxTCjkJdb/edit?usp=sharing&ouid=115122328361930346605&rtpof=true&sd=true))
+
+## Acknowledgements
+This project was done by Divam Trivedi as a part of final project presentation for RBE 526 - Human-Robot Interaction by Prof. Jane Li at WPI.
