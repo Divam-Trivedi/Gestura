@@ -24,7 +24,11 @@ Follow the instructions to control the robot
 
 ### Results
 
-A simple robot designed for minimal functionality
+<p> A simple robot designed for minimal functionality </p>
 <img src="images/robot.png" alt="Alt Text" style="width:50%; height:auto;">
 
-
+<p> Hand Gesture control for opening and closing the gripper</p>
+<p float="left">
+<img src="images/gripper_open.png" alt="Alt Text" style="width:100; height:auto;"> 
+<img src="images/gripper_close.png" alt="Alt Text" style="width:100; height:auto;"> 
+</p>
